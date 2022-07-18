@@ -1,0 +1,22 @@
+.background-color-gray {
+  background-color: #f0f0f0;
+}
+
+.background-color-purple {
+  background-color: #552b81;
+}
+
+.text-white {
+  color: white;
+}
+
+img {
+  width: 100%;
+}
+
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+}

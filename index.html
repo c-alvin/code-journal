@@ -16,11 +16,62 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
+  <header class="background-color-purple text-white">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>Code Journal</h1>
+        </div>
+      </div>
+    </div>
   </header>
-  <main>
+  <main class="background-color-gray">
+    <div data-view="entry-form">
+      <form>
+        <div class="container">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+            <div class="column-full column-half">
+              <img src="images/placeholder-image-square.jpg" alt="placeholder">
+            </div>
+            <div class="column-full column-half">
+              <label for="journal-title">Title</label>
+              <input required name="title" id="journal-title" type="text">
+              <label class="photourl" for="photo-url">Photo URL</label>
+              <input required type="text" name="photo" id="photo-url">
+            </div>
+            <div class="column-full">
+              <label for="notes">Notes</label>
+              <textarea required name="note" id="notes"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
+
+<!--
+<form>
+  <h1>New Entry</h1>
+  <img src="images/placeholder-image-square.jpg" alt="">
+  <div>
+    <label for="journal-title">Title</label>
+    <div>
+      <input required name="title" id="journal-title" type="text">
+    </div>
+    <label for="photo-url">Photo URL</label>
+    <div>
+      <input required type="text" name="photo" id="photo-url">
+    </div>
+    <label for="notes">Notes</label>
+    <div>
+      <textarea required name="note" id="notes"></textarea>
+    </div>
+  </div>
+</form> -->
