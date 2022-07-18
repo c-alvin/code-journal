@@ -60,3 +60,26 @@ button {
   font-weight: 500;
   font-size: 0.9rem;
 }
+
+.fontsize {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.paddingbotsmall {
+  padding-bottom: 0.5rem;
+}
+
+.fontweight500 {
+  font-weight: 500;
+}
+
+.codeheader {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+textarea,
+input {
+  outline-color: #552b81;
+}
