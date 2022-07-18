@@ -12,6 +12,7 @@
 
 img {
   width: 100%;
+  height: 300px;
 }
 
 label,
@@ -19,4 +20,43 @@ input,
 textarea {
   display: block;
   width: 100%;
+}
+
+.opensans {
+  font-family: "Open Sans", sans-serif;
+}
+
+input {
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+textarea {
+  padding: 0.5rem;
+  height: 8rem;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.fontweight700 {
+  font-weight: 700;
+}
+
+button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  background-color: #552b81;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  font-weight: 500;
+  font-size: 0.9rem;
 }

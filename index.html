@@ -14,10 +14,14 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="background-color-purple text-white">
-    <div class="container">
+    <div class="container opensans">
       <div class="row">
         <div class="column-full">
           <h1>Code Journal</h1>
@@ -27,24 +31,27 @@
   </header>
   <main class="background-color-gray">
     <div data-view="entry-form">
-      <form>
+      <form class="form">
         <div class="container">
           <div class="row">
-            <div class="column-full">
+            <div class="column-full opensans fontsize1rem">
               <h1>New Entry</h1>
             </div>
             <div class="column-full column-half">
-              <img src="images/placeholder-image-square.jpg" alt="placeholder">
+              <img class="imageurl" src="images/placeholder-image-square.jpg" alt="placeholder">
             </div>
-            <div class="column-full column-half">
+            <div class="column-full column-half opensans">
               <label for="journal-title">Title</label>
               <input required name="title" id="journal-title" type="text">
-              <label class="photourl" for="photo-url">Photo URL</label>
-              <input required type="text" name="photo" id="photo-url">
+              <label for="photo-url">Photo URL</label>
+              <input class="photourl" required type="text" name="photo" id="photo-url">
             </div>
-            <div class="column-full">
+            <div class="column-full opensans">
               <label for="notes">Notes</label>
               <textarea required name="note" id="notes"></textarea>
+            </div>
+            <div class="column-full display-flex justify-end ">
+              <button class="" type="submit">SAVE</button>
             </div>
           </div>
         </div>
