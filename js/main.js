@@ -65,8 +65,12 @@ function renderJournalEntry(objform) {
 }
 
 var ul = document.querySelector('ul');
+var $placeholder = document.querySelector('.placeholder');
 
 function contentLoaded(event) {
+  if (data.entries.length > 0) {
+    $placeholder.className = 'hidden';
+  }
   for (var i = 0; i < data.entries.length; i++) {
     var content = renderJournalEntry(data.entries[i]);
     ul.appendChild(content);
@@ -74,3 +78,47 @@ function contentLoaded(event) {
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);
+
+var $anchor = document.querySelector('.entries');
+var $allView = document.querySelectorAll('.view');
+
+function entriesTab(event) {
+  var $dataView = event.target.getAttribute('data-view');
+  for (var i = 0; i < $allView.length; i++) {
+    if ($allView[i].getAttribute('data-view') === $dataView) {
+      $allView[i].className = 'view';
+    } else if ($allView[i].getAttribute('data-view') !== $dataView) {
+      $allView[i].className = 'view hidden';
+    }
+  }
+}
+
+$anchor.addEventListener('click', entriesTab);
+
+var $buttonAnchor2 = document.querySelector('.button2');
+
+function newFormTabButton2(event) {
+  var $dataView = event.target.getAttribute('data-view');
+  for (var i = 0; i < $allView.length; i++) {
+    if ($allView[i].getAttribute('data-view') === $dataView) {
+      $allView[i].className = 'view';
+    } else if ($allView[i].getAttribute('data-view') !== $dataView) {
+      $allView[i].className = 'view hidden';
+    }
+  }
+}
+$buttonAnchor2.addEventListener('click', newFormTabButton2);
+
+var $buttonAnchor = document.querySelector('.button1');
+
+function newFormTabButton1(event) {
+  var $dataView = event.target.getAttribute('data-view');
+  for (var i = 0; i < $allView.length; i++) {
+    if ($allView[i].getAttribute('data-view') === $dataView) {
+      $allView[i].className = 'view';
+    } else if ($allView[i].getAttribute('data-view') !== $dataView) {
+      $allView[i].className = 'view hidden';
+    }
+  }
+}
+$buttonAnchor.addEventListener('click', newFormTabButton1);

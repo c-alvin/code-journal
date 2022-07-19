@@ -24,14 +24,15 @@
   <header class="background-color-purple text-white">
     <div class="container">
       <div class="row">
-        <div class="column-full">
+        <div class="column-full display-flex align-center ">
           <h1 class="code-header">Code Journal</h1>
+          <h1 data-view="entries" class="code-header left-padding-small text-white entries">Entries</h1>
         </div>
       </div>
     </div>
   </header>
   <main class="background-color-gray">
-    <div data-view="entry-form">
+    <div class="view" data-view="entry-form">
       <form class="form">
         <div class="container">
           <div class="row">
@@ -52,21 +53,25 @@
               <textarea required name="note" id="notes"></textarea>
             </div>
             <div class="column-full display-flex justify-end ">
-              <button class="" type="submit">SAVE</button>
+              <button class="button1" data-view="entries" type="submit">SAVE</button>
             </div>
           </div>
         </div>
       </form>
     </div>
-    <div data-view="entries" class="container">
-      <div class="row">
-        <div class="column-full display-flex space-between">
-          <h1>Entries</h1>
-          <button class="button2">NEW</button>
+    <div data-view="entries" class="view hidden">
+      <div class="container">
+        <div class="row">
+          <div class="column-full display-flex space-between">
+            <h1 class="font-size">Entries</h1>
+            <button class="button2" data-view="entry-form">NEW</button>
+          </div>
         </div>
+        <p class="text-center placeholder">No Entries Have Been Recorded.</p>
+        <ul class="row">
+        </ul>
       </div>
-      <ul class="row">
-      </ul>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

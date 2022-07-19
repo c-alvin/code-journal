@@ -48,7 +48,7 @@ textarea {
   font-weight: 700;
 }
 
-button {
+.button1 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
@@ -109,4 +109,32 @@ ul {
 
 .text-center {
   text-align: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.left-padding-small {
+  padding-left: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
