@@ -24,3 +24,53 @@ function formSubmit(event) {
 }
 
 $form.addEventListener('submit', formSubmit);
+
+function renderJournalEntry(objform) {
+
+  var liColumn = document.createElement('li');
+  liColumn.setAttribute('class', 'column-full');
+
+  var divRow = document.createElement('div');
+  divRow.setAttribute('class', 'row');
+
+  liColumn.appendChild(divRow);
+
+  var divColumn = document.createElement('div');
+  divColumn.setAttribute('class', 'column-half column-full');
+
+  divRow.appendChild(divColumn);
+
+  var journalImg = document.createElement('img');
+  journalImg.setAttribute('src', objform.photourl);
+
+  divColumn.appendChild(journalImg);
+
+  var divColumn2 = document.createElement('div');
+  divColumn2.setAttribute('class', 'column-half column-full');
+
+  divRow.appendChild(divColumn2);
+
+  var titleContent = document.createElement('h2');
+  titleContent.textContent = objform.title;
+
+  divColumn2.appendChild(titleContent);
+
+  var notesContent = document.createElement('p');
+  notesContent.textContent = objform.notes;
+
+  divColumn2.appendChild(notesContent);
+
+  return liColumn;
+
+}
+
+var ul = document.querySelector('ul');
+
+function contentLoaded(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    var content = renderJournalEntry(data.entries[i]);
+    ul.appendChild(content);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', contentLoaded);

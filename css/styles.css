@@ -83,3 +83,30 @@ textarea,
 input {
   outline-color: #552b81;
 }
+
+.space-between {
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.button2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.1rem 1rem;
+  background-color: #552b81;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  height: 2.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
