@@ -14,13 +14,72 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
+<body class="background-color-gray opensans">
+  <header class="background-color-purple text-white">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1 class="code-header">Code Journal</h1>
+        </div>
+      </div>
+    </div>
   </header>
-  <main>
+  <main class="background-color-gray">
+    <div data-view="entry-form">
+      <form class="form">
+        <div class="container">
+          <div class="row">
+            <div class="column-full ">
+              <h1 class="font-size">New Entry</h1>
+            </div>
+            <div class="column-full column-half">
+              <img class="imageurl" src="images/placeholder-image-square.jpg" alt="placeholder">
+            </div>
+            <div class="column-full column-half font-weight-500">
+              <label class="padding-bot-small" for="journal-title">Title</label>
+              <input required name="title" id="journal-title" type="text">
+              <label class="padding-bot-small" for="photo-url">Photo URL</label>
+              <input class="photourl" required type="text" name="photo" id="photo-url">
+            </div>
+            <div class="column-full">
+              <label class="padding-bot-small font-weight-500" for="notes">Notes</label>
+              <textarea required name="note" id="notes"></textarea>
+            </div>
+            <div class="column-full display-flex justify-end ">
+              <button class="" type="submit">SAVE</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
+
+<!--
+<form>
+  <h1>New Entry</h1>
+  <img src="images/placeholder-image-square.jpg" alt="">
+  <div>
+    <label for="journal-title">Title</label>
+    <div>
+      <input required name="title" id="journal-title" type="text">
+    </div>
+    <label for="photo-url">Photo URL</label>
+    <div>
+      <input required type="text" name="photo" id="photo-url">
+    </div>
+    <label for="notes">Notes</label>
+    <div>
+      <textarea required name="note" id="notes"></textarea>
+    </div>
+  </div>
+</form> -->
