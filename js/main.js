@@ -2,9 +2,8 @@ var $photoUrlInput = document.querySelector('.photourl');
 var $img = document.querySelector('.imageurl');
 
 function photoInput(event) {
-  if (event.target.matches('.photourl')) {
-    $img.setAttribute('src', event.target.value);
-  }
+  $img.setAttribute('src', event.target.value);
+
 }
 
 $photoUrlInput.addEventListener('input', photoInput);
@@ -17,7 +16,7 @@ function formSubmit(event) {
   objform.title = $form.elements.title.value;
   objform.photourl = $form.elements.photo.value;
   objform.notes = $form.elements.note.value;
-  objform.EntryId = data.nextEntryId;
+  objform.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.unshift(objform);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');

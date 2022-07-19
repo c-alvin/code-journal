@@ -61,20 +61,20 @@ button {
   font-size: 0.9rem;
 }
 
-.fontsize {
+.font-size {
   font-size: 2rem;
   font-weight: 500;
 }
 
-.paddingbotsmall {
+.padding-bot-small {
   padding-bottom: 0.5rem;
 }
 
-.fontweight500 {
+.font-weight-500 {
   font-weight: 500;
 }
 
-.codeheader {
+.code-header {
   font-size: 1rem;
   font-weight: 500;
 }
