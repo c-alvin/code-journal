@@ -19,6 +19,11 @@ function formSubmit(event) {
   objform.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.unshift(objform);
+  var entrytest = renderJournalEntry(objform);
+  ul.prepend(entrytest);
+  if (data.entries.length > 0) {
+    $placeholder.className = 'hidden';
+  }
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }
@@ -51,11 +56,13 @@ function renderJournalEntry(objform) {
   divRow.appendChild(divColumn2);
 
   var titleContent = document.createElement('h2');
+  titleContent.setAttribute('class', 'title');
   titleContent.textContent = objform.title;
 
   divColumn2.appendChild(titleContent);
 
   var notesContent = document.createElement('p');
+  notesContent.setAttribute('class', 'notes');
   notesContent.textContent = objform.notes;
 
   divColumn2.appendChild(notesContent);
@@ -66,6 +73,19 @@ function renderJournalEntry(objform) {
 
 var ul = document.querySelector('ul');
 var $placeholder = document.querySelector('.placeholder');
+
+function viewSwap(viewData) {
+  for (var i = 0; i < $allView.length; i++) {
+    var $dataView = $allView[i].getAttribute('data-view');
+    if (data.view === $dataView) {
+      $allView[i].className = 'view';
+    } else if (data.view !== $dataView) {
+      $allView[i].className = 'view hidden';
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded', viewSwap);
 
 function contentLoaded(event) {
   if (data.entries.length > 0) {
@@ -91,6 +111,7 @@ function entriesTab(event) {
       $allView[i].className = 'view hidden';
     }
   }
+  data.view = 'entries';
 }
 
 $anchor.addEventListener('click', entriesTab);
@@ -106,6 +127,7 @@ function newFormTabButton2(event) {
       $allView[i].className = 'view hidden';
     }
   }
+  data.view = 'entry-form';
 }
 $buttonAnchor2.addEventListener('click', newFormTabButton2);
 
@@ -120,5 +142,7 @@ function newFormTabButton1(event) {
       $allView[i].className = 'view hidden';
     }
   }
+  data.view = 'entries';
+
 }
 $buttonAnchor.addEventListener('click', newFormTabButton1);

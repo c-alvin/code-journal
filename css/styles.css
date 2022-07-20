@@ -138,3 +138,14 @@ a {
 .justify-evenly {
   justify-content: space-evenly;
 }
+
+.notes {
+  font-family: "open sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.title {
+  font-family: "open sans", sans-serif;
+  font-weight: 500;
+}
