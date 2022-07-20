@@ -72,7 +72,7 @@ function renderJournalEntry(objform) {
 var ul = document.querySelector('ul');
 var $placeholder = document.querySelector('.placeholder');
 
-function viewSwap(viewData) {
+function viewSwap() {
   for (var i = 0; i < $allView.length; i++) {
     var $dataView = $allView[i].getAttribute('data-view');
     if (data.view === $dataView) {
@@ -100,23 +100,16 @@ window.addEventListener('DOMContentLoaded', contentLoaded);
 var $anchor = document.querySelector('.entries');
 var $allView = document.querySelectorAll('.view');
 
-function entriesTab(event) {
-  var $dataView = event.target.getAttribute('data-view');
-  for (var i = 0; i < $allView.length; i++) {
-    if ($allView[i].getAttribute('data-view') === $dataView) {
-      $allView[i].className = 'view';
-    } else if ($allView[i].getAttribute('data-view') !== $dataView) {
-      $allView[i].className = 'view hidden';
-    }
-  }
-  data.view = 'entries';
-}
-
-$anchor.addEventListener('click', entriesTab);
+$anchor.addEventListener('click', changeDataView);
 
 var $buttonAnchor2 = document.querySelector('.save-button');
 
-function newFormTabButton2(event) {
+function changeDataView(event) {
+  if (data.view === 'entry-form') {
+    data.view = 'entries';
+  } else {
+    data.view = 'entry-form';
+  }
   var $dataView = event.target.getAttribute('data-view');
   for (var i = 0; i < $allView.length; i++) {
     if ($allView[i].getAttribute('data-view') === $dataView) {
@@ -125,22 +118,10 @@ function newFormTabButton2(event) {
       $allView[i].className = 'view hidden';
     }
   }
-  data.view = 'entry-form';
 }
-$buttonAnchor2.addEventListener('click', newFormTabButton2);
+
+$buttonAnchor2.addEventListener('click', changeDataView);
 
 var $buttonAnchor = document.querySelector('.form-button');
 
-function newFormTabButton1(event) {
-  var $dataView = event.target.getAttribute('data-view');
-  for (var i = 0; i < $allView.length; i++) {
-    if ($allView[i].getAttribute('data-view') === $dataView) {
-      $allView[i].className = 'view';
-    } else if ($allView[i].getAttribute('data-view') !== $dataView) {
-      $allView[i].className = 'view hidden';
-    }
-  }
-  data.view = 'entries';
-
-}
-$buttonAnchor.addEventListener('click', newFormTabButton1);
+$buttonAnchor.addEventListener('click', changeDataView);
