@@ -48,7 +48,7 @@ textarea {
   font-weight: 700;
 }
 
-.button1 {
+.save-button {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
@@ -93,7 +93,7 @@ ul {
   padding: 0;
 }
 
-.button2 {
+.form-button {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.25rem;

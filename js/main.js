@@ -21,9 +21,7 @@ function formSubmit(event) {
   data.entries.unshift(objform);
   var entrytest = renderJournalEntry(objform);
   ul.prepend(entrytest);
-  if (data.entries.length > 0) {
-    $placeholder.className = 'hidden';
-  }
+  $placeholder.className = 'hidden';
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }
@@ -116,7 +114,7 @@ function entriesTab(event) {
 
 $anchor.addEventListener('click', entriesTab);
 
-var $buttonAnchor2 = document.querySelector('.button2');
+var $buttonAnchor2 = document.querySelector('.save-button');
 
 function newFormTabButton2(event) {
   var $dataView = event.target.getAttribute('data-view');
@@ -131,7 +129,7 @@ function newFormTabButton2(event) {
 }
 $buttonAnchor2.addEventListener('click', newFormTabButton2);
 
-var $buttonAnchor = document.querySelector('.button1');
+var $buttonAnchor = document.querySelector('.form-button');
 
 function newFormTabButton1(event) {
   var $dataView = event.target.getAttribute('data-view');
