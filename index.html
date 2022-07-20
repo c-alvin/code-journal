@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -20,18 +18,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body class="background-color-gray opensans">
   <header class="background-color-purple text-white">
     <div class="container">
       <div class="row">
-        <div class="column-full">
+        <div class="column-full display-flex align-center ">
           <h1 class="code-header">Code Journal</h1>
+          <a href="#" data-view="entries" class="code-header left-padding-small text-white entries">Entries</a>
         </div>
       </div>
     </div>
   </header>
   <main class="background-color-gray">
-    <div data-view="entry-form">
+    <div class="view" data-view="entry-form">
       <form class="form">
         <div class="container">
           <div class="row">
@@ -52,16 +52,30 @@
               <textarea required name="note" id="notes"></textarea>
             </div>
             <div class="column-full display-flex justify-end ">
-              <button class="" type="submit">SAVE</button>
+              <button class="save-form-button" data-view="entries" type="submit">SAVE</button>
             </div>
           </div>
         </div>
       </form>
     </div>
+    <div data-view="entries" class="view hidden">
+      <div class="container">
+        <div class="row">
+          <div class="column-full display-flex space-between align-center">
+            <h1 class="font-size">Entries</h1>
+            <button class="new-button" data-view="entry-form">NEW</button>
+          </div>
+        </div>
+        <p class="text-center placeholder">No Entries Have Been Recorded.</p>
+        <ul class="row">
+        </ul>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
 
 <!--
