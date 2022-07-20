@@ -32,6 +32,7 @@ function renderJournalEntry(objform) {
 
   var liColumn = document.createElement('li');
   liColumn.setAttribute('class', 'column-full');
+  liColumn.setAttribute('data-entry-id', objform.entryId);
 
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
@@ -53,11 +54,19 @@ function renderJournalEntry(objform) {
 
   divRow.appendChild(divColumn2);
 
+  var divRowTest = document.createElement('div');
+  divRowTest.setAttribute('class', 'row space-between align-center');
+  divColumn2.appendChild(divRowTest);
+
   var titleContent = document.createElement('h2');
   titleContent.setAttribute('class', 'title');
   titleContent.textContent = objform.title;
 
-  divColumn2.appendChild(titleContent);
+  divRowTest.appendChild(titleContent);
+
+  var editIcon = document.createElement('i');
+  editIcon.setAttribute('class', 'fa-solid fa-pen pen');
+  divRowTest.appendChild(editIcon);
 
   var notesContent = document.createElement('p');
   notesContent.setAttribute('class', 'notes');
