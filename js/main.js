@@ -72,18 +72,17 @@ function renderJournalEntry(objform) {
 var ul = document.querySelector('ul');
 var $placeholder = document.querySelector('.placeholder');
 
-function viewSwap() {
+function viewSwap(viewData) {
   for (var i = 0; i < $allView.length; i++) {
     var $dataView = $allView[i].getAttribute('data-view');
-    if (data.view === $dataView) {
+    if (viewData === $dataView) {
       $allView[i].className = 'view';
-    } else if (data.view !== $dataView) {
+      data.view = viewData;
+    } else if (viewData !== $dataView) {
       $allView[i].className = 'view hidden';
     }
   }
 }
-
-window.addEventListener('DOMContentLoaded', viewSwap);
 
 function contentLoaded(event) {
   if (data.entries.length > 0) {
@@ -93,6 +92,7 @@ function contentLoaded(event) {
     var content = renderJournalEntry(data.entries[i]);
     ul.appendChild(content);
   }
+  viewSwap(data.view);
 }
 
 window.addEventListener('DOMContentLoaded', contentLoaded);
@@ -100,28 +100,17 @@ window.addEventListener('DOMContentLoaded', contentLoaded);
 var $anchor = document.querySelector('.entries');
 var $allView = document.querySelectorAll('.view');
 
+function changeDataView(event) {
+  var $dataView = event.target.getAttribute('data-view');
+  viewSwap($dataView);
+}
+
 $anchor.addEventListener('click', changeDataView);
 
-var $buttonAnchor2 = document.querySelector('.save-button');
-
-function changeDataView(event) {
-  if (data.view === 'entry-form') {
-    data.view = 'entries';
-  } else {
-    data.view = 'entry-form';
-  }
-  var $dataView = event.target.getAttribute('data-view');
-  for (var i = 0; i < $allView.length; i++) {
-    if ($allView[i].getAttribute('data-view') === $dataView) {
-      $allView[i].className = 'view';
-    } else if ($allView[i].getAttribute('data-view') !== $dataView) {
-      $allView[i].className = 'view hidden';
-    }
-  }
-}
+var $buttonAnchor2 = document.querySelector('.new-button');
 
 $buttonAnchor2.addEventListener('click', changeDataView);
 
-var $buttonAnchor = document.querySelector('.form-button');
+var $buttonAnchor = document.querySelector('.save-form-button');
 
 $buttonAnchor.addEventListener('click', changeDataView);
