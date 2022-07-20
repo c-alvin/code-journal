@@ -128,8 +128,22 @@ var $parentUlElement = document.querySelector('ul');
 
 function parentUlView(event) {
   if (event.target.tagName === 'I') {
-    var $closestDataView = event.target.closest('ul').getAttribute('data-view');
-    viewSwap($closestDataView);
+    viewSwap('entry-form');
+    var $closestEntryId = event.target.closest('li').getAttribute('data-entry-id');
+    $closestEntryId = Number($closestEntryId);
+    for (var i = 0; i < data.entries.length; i++) {
+      if ($closestEntryId === data.entries[i].entryId) {
+        data.editing = data.entries[i];
+        var $journalTitle = document.getElementById('journal-title');
+        $journalTitle.value = data.entries[i].title;
+        var $journalPhotoUrl = document.getElementById('photo-url');
+        $journalPhotoUrl.value = data.entries[i].photourl;
+        var $journalNotes = document.getElementById('notes');
+        $journalNotes.value = data.entries[i].notes;
+        var $placeholderImg = document.querySelector('.imageurl');
+        $placeholderImg.setAttribute('src', data.entries[i].photourl);
+      }
+    }
   }
 }
 $parentUlElement.addEventListener('click', parentUlView);
