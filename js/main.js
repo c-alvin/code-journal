@@ -123,3 +123,13 @@ $buttonAnchor2.addEventListener('click', changeDataView);
 var $buttonAnchor = document.querySelector('.save-form-button');
 
 $buttonAnchor.addEventListener('click', changeDataView);
+
+var $parentUlElement = document.querySelector('ul');
+
+function parentUlView(event) {
+  if (event.target.tagName === 'I') {
+    var $closestDataView = event.target.closest('ul').getAttribute('data-view');
+    viewSwap($closestDataView);
+  }
+}
+$parentUlElement.addEventListener('click', parentUlView);
