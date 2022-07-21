@@ -28,7 +28,7 @@ function formSubmit(event) {
         $findLi[j].replaceWith(renderJournalEntry(data.entries[j]));
       }
     }
-    data.editing = 'null';
+    data.editing = null;
     $img.setAttribute('src', 'images/placeholder-image-square.jpg');
     $form.reset();
   } else {
@@ -45,6 +45,7 @@ function formSubmit(event) {
     $img.setAttribute('src', 'images/placeholder-image-square.jpg');
     $form.reset();
   }
+  viewSwap('entries');
 }
 
 $form.addEventListener('submit', formSubmit);
@@ -133,6 +134,9 @@ var $allView = document.querySelectorAll('.view');
 function changeDataView(event) {
   var $dataView = event.target.getAttribute('data-view');
   viewSwap($dataView);
+  data.editing = null;
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
 }
 
 $anchor.addEventListener('click', changeDataView);
@@ -140,10 +144,6 @@ $anchor.addEventListener('click', changeDataView);
 var $buttonAnchor2 = document.querySelector('.new-button');
 
 $buttonAnchor2.addEventListener('click', changeDataView);
-
-var $buttonAnchor = document.querySelector('.save-form-button');
-
-$buttonAnchor.addEventListener('click', changeDataView);
 
 var $parentUlElement = document.querySelector('ul');
 
