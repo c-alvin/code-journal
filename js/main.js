@@ -172,8 +172,12 @@ function parentUlView(event) {
 }
 $parentUlElement.addEventListener('click', parentUlView);
 
-// if (data.editing !== null) {
-//   $deleteEntryButton.className = 'delete-entry-button';
-// } else {
-//   $deleteEntryButton.className = 'hidden delete-entry-button';
-// }
+// var modalOn = false;
+
+// // function confirmationModal(event) {
+// //   if (modalOn === false) {
+
+// //   }
+// // }
+
+// $deleteEntryButton.addEventListener('click', confirmationModal);

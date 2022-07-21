@@ -176,3 +176,44 @@ a {
 .visibility-hidden {
   visibility: hidden;
 }
+
+.fixed {
+  position: fixed;
+}
+
+.modal-box {
+  height: 200px;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0 1px 5px 1000px rgb(0 0 0 / 80%);
+  border-radius: 5px;
+  top: 25%;
+}
+
+.cancel-button {
+  padding: 0.5rem 1rem;
+  background-color: #b6b6b6;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  margin-left: 2rem;
+}
+
+.confirm-button {
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  margin-right: 2rem;
+}
+
+.font-size-medium {
+  font-size: 1rem;
+}
