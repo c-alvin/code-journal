@@ -12,18 +12,39 @@ var $form = document.querySelector('.form');
 
 function formSubmit(event) {
   event.preventDefault();
-  var objform = {};
-  objform.title = $form.elements.title.value;
-  objform.photourl = $form.elements.photo.value;
-  objform.notes = $form.elements.note.value;
-  objform.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(objform);
-  var entrytest = renderJournalEntry(objform);
-  ul.prepend(entrytest);
-  $placeholder.className = 'hidden';
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $form.reset();
+  if (data.editing !== null) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.entryId === data.entries[i].entryId) {
+        data.entries[i].title = $form.elements.title.value;
+        data.entries[i].photourl = $form.elements.photo.value;
+        data.entries[i].notes = $form.elements.note.value;
+      }
+    }
+    var $findLi = document.querySelectorAll('li');
+    for (var j = 0; j < $findLi.length; j++) {
+      var $dataEntryId = $findLi[j].getAttribute('data-entry-id');
+      $dataEntryId = Number($dataEntryId);
+      if ($dataEntryId === data.entries[j].entryId) {
+        $findLi[j].replaceWith(renderJournalEntry(data.entries[j]));
+      }
+    }
+    data.editing = 'null';
+    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $form.reset();
+  } else {
+    var objform = {};
+    objform.title = $form.elements.title.value;
+    objform.photourl = $form.elements.photo.value;
+    objform.notes = $form.elements.note.value;
+    objform.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(objform);
+    var entrytest = renderJournalEntry(objform);
+    ul.prepend(entrytest);
+    $placeholder.className = 'hidden';
+    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $form.reset();
+  }
 }
 
 $form.addEventListener('submit', formSubmit);
