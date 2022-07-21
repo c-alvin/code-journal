@@ -102,6 +102,7 @@ function renderJournalEntry(objform) {
 
 var ul = document.querySelector('ul');
 var $placeholder = document.querySelector('.placeholder');
+var $deleteEntryButton = document.querySelector('.delete-entry-button');
 
 function viewSwap(viewData) {
   for (var i = 0; i < $allView.length; i++) {
@@ -135,6 +136,9 @@ function changeDataView(event) {
   var $dataView = event.target.getAttribute('data-view');
   viewSwap($dataView);
   data.editing = null;
+  $deleteEntryButton.className = 'visibility-hidden delete-entry-button';
+  modalOn = false;
+  $modal.setAttribute('class', 'row modal hidden');
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }
@@ -163,8 +167,59 @@ function parentUlView(event) {
         $journalNotes.value = data.entries[i].notes;
         var $placeholderImg = document.querySelector('.imageurl');
         $placeholderImg.setAttribute('src', data.entries[i].photourl);
+        $deleteEntryButton.className = 'delete-entry-button';
       }
     }
   }
 }
 $parentUlElement.addEventListener('click', parentUlView);
+
+var modalOn = false;
+
+function confirmationModal(modalStatus) {
+  event.preventDefault();
+  if (modalOn === false) {
+    $modal.setAttribute('class', 'row modal');
+    modalOn = true;
+  } else {
+    $modal.setAttribute('class', 'row modal hidden');
+    modalOn = false;
+  }
+}
+
+$deleteEntryButton.addEventListener('click', confirmationModal);
+var $modal = document.querySelector('.modal');
+
+var $cancelButton = document.querySelector('.cancel-button');
+
+$cancelButton.addEventListener('click', confirmationModal);
+
+var $confirmButton = document.querySelector('.confirm-button');
+
+function deleteModalAndTree(event) {
+  event.preventDefault();
+  if (data.editing !== null) {
+    var $findLi = document.querySelectorAll('li');
+    for (var j = 0; j < $findLi.length; j++) {
+      var $dataEntryId = $findLi[j].getAttribute('data-entry-id');
+      $dataEntryId = Number($dataEntryId);
+      if ($dataEntryId === data.editing.entryId) {
+        $findLi[j].remove();
+      }
+    }
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.entryId === data.entries[i].entryId) {
+        data.entries.splice(i, 1);
+      }
+    }
+  }
+  modalOn = false;
+  $modal.setAttribute('class', 'row modal hidden');
+  if (data.entries.length > 0) {
+    $placeholder.className = 'hidden';
+  } else {
+    $placeholder.className = 'text-center placeholder';
+  }
+  viewSwap('entries');
+}
+$confirmButton.addEventListener('click', deleteModalAndTree);
