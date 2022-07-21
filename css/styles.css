@@ -149,3 +149,16 @@ a {
   font-family: "open sans", sans-serif;
   font-weight: 500;
 }
+
+.pen {
+  color: #552b81;
+  font-size: 1.25rem;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.text-right {
+  text-align: right;
+}
