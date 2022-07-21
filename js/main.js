@@ -102,6 +102,7 @@ function renderJournalEntry(objform) {
 
 var ul = document.querySelector('ul');
 var $placeholder = document.querySelector('.placeholder');
+var $deleteEntryButton = document.querySelector('.delete-entry-button');
 
 function viewSwap(viewData) {
   for (var i = 0; i < $allView.length; i++) {
@@ -135,6 +136,7 @@ function changeDataView(event) {
   var $dataView = event.target.getAttribute('data-view');
   viewSwap($dataView);
   data.editing = null;
+  $deleteEntryButton.className = 'visibility-hidden delete-entry-button';
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }
@@ -163,8 +165,15 @@ function parentUlView(event) {
         $journalNotes.value = data.entries[i].notes;
         var $placeholderImg = document.querySelector('.imageurl');
         $placeholderImg.setAttribute('src', data.entries[i].photourl);
+        $deleteEntryButton.className = 'delete-entry-button';
       }
     }
   }
 }
 $parentUlElement.addEventListener('click', parentUlView);
+
+// if (data.editing !== null) {
+//   $deleteEntryButton.className = 'delete-entry-button';
+// } else {
+//   $deleteEntryButton.className = 'hidden delete-entry-button';
+// }

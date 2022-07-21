@@ -162,3 +162,17 @@ a {
 .text-right {
   text-align: right;
 }
+
+.delete-entry-button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  color: red;
+  font-size: 0.9rem;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
