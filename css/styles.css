@@ -217,3 +217,17 @@ a {
 .font-size-medium {
   font-size: 1rem;
 }
+
+.search-bar {
+  border-radius: 0.5rem;
+  outline: none;
+  margin: auto;
+}
+
+.margin-right-medium {
+  margin-right: 2rem;
+}
+
+::placeholder {
+  color: #a3a3a3;
+}
