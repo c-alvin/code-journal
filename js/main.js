@@ -135,6 +135,10 @@ var $allView = document.querySelectorAll('.view');
 function changeDataView(event) {
   var $dataView = event.target.getAttribute('data-view');
   viewSwap($dataView);
+  var $findLi = document.querySelectorAll('li');
+  for (var i = 0; i < $findLi.length; i++) {
+    $findLi[i].className = 'column-full';
+  }
   data.editing = null;
   $deleteEntryButton.className = 'visibility-hidden delete-entry-button';
   modalOn = false;
@@ -223,3 +227,21 @@ function deleteModalAndTree(event) {
   viewSwap('entries');
 }
 $confirmButton.addEventListener('click', deleteModalAndTree);
+
+var $searchInput = document.querySelector('.search-bar');
+
+function searchAndPopulateEntries(event) {
+  if (data.entries.length > 0) {
+    for (var i = 0; i < data.entries.length; i++) {
+      var $titleName = data.entries[i].title;
+      var $findLi = document.querySelectorAll('li');
+      if ($titleName === event.target.value) {
+        $findLi[i].className = 'column-full';
+      } else {
+        $findLi[i].className = 'column-full hidden';
+      }
+    }
+    viewSwap('entries');
+  }
+}
+$searchInput.addEventListener('search', searchAndPopulateEntries);
