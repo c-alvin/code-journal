@@ -241,6 +241,7 @@ function searchAndPopulateEntries(event) {
         $findLi[i].className = 'column-full hidden';
       }
     }
+    event.target.value = null;
     viewSwap('entries');
   }
 }
